@@ -15,7 +15,6 @@ import lime.utils.Assets;
 #if sys
 import sys.io.File;
 import sys.FileSystem;
-import polymod.backends.PolymodAssets;
 #end
 
 using StringTools;

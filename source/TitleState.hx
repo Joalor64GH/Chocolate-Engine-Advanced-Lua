@@ -32,14 +32,6 @@ import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.Assets;
 import flixel.input.keyboard.FlxKey;
-#if MODS_ALLOWED
-import ModsMenuState;
-import modding.PolymodHandler;
-import modding.ModList;
-import polymod.Polymod;
-import polymod.Polymod.Framework;
-import polymod.Polymod.PolymodError;
-#end
 import states.*;
 
 using StringTools;
@@ -89,33 +81,6 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-		#if MODS_ALLOWED
-		if (sys.FileSystem.exists('mods/'))
-		{
-			var folders:Array<String> = [];
-			for (file in sys.FileSystem.readDirectory('mods/'))
-			{
-				var path = haxe.io.Path.join(['mods/', file]);
-				if (sys.FileSystem.isDirectory(path))
-				{
-					folders.push(file);
-				}
-			}
-		}
-		if (sys.FileSystem.exists('mods/' + ModsMenuState.coolId + '/'))
-		{
-			var folders:Array<String> = [];
-			for (file in sys.FileSystem.readDirectory('mods/' + ModsMenuState.coolId + '/'))
-			{
-				var path = haxe.io.Path.join(['mods/' + ModsMenuState.coolId + '/', file]);
-				if (sys.FileSystem.isDirectory(path))
-				{
-					folders.push(file);
-				}
-			}
-		}
-		#end
-
 		PlayerSettings.init();
 
 		swagShader = new ColorSwap();
@@ -172,10 +137,6 @@ class TitleState extends MusicBeatState
 	{
 		if (!initialized)
 		{
-			#if MODS_ALLOWED
-			ModList.load();
-			#end
-
 			var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);
 			diamond.persist = true;
 			diamond.destroyOnNoUse = false;

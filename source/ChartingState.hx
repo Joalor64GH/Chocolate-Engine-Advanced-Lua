@@ -32,9 +32,6 @@ import openfl.media.Sound;
 import openfl.net.FileReference;
 import openfl.utils.ByteArray;
 import flixel.util.FlxTimer;
-#if MODS_ALLOWED
-import polymod.backends.PolymodAssets;
-#end
 
 using StringTools;
 

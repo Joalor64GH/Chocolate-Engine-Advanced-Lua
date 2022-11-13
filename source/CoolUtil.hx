@@ -4,8 +4,7 @@ import flixel.FlxG;
 import lime.utils.Assets;
 import flixel.FlxSprite;
 import flixel.FlxState;
-#if MODS_ALLOWED
-import polymod.backends.PolymodAssets;
+#if sys
 import sys.FileSystem;
 import sys.io.File;
 #end
@@ -66,50 +65,6 @@ class CoolUtil
 
 		return daList;
 	}
-
-	// this is actual source code from VS Null https://gamebanana.com/wips/70592
-	public static inline function coolerTextFile(path:String, daString:String = ''):String
-	{
-		#if MODS_ALLOWED
-		if (FileSystem.exists(path))
-			daString = File.getContent(path).trim();
-		#else
-		if (Assets.exists(path))
-			daString = Assets.getText(path).trim();
-		#end
-
-		return daString;
-	}
-
-	public static function evenCoolerTextFile(path:String):Array<String>
-	{
-		#if MODS_ALLOWED
-		var daList:Array<String> = sys.io.File.getContent(path).trim().split('\n');
-
-		for (i in 0...daList.length)
-		{
-			daList[i] = daList[i].trim();
-		}
-
-		return daList;
-		#else
-		return [];
-		#end
-	}
-
-	#if MODS_ALLOWED
-	public static function coolTextFilePolymod(path:String):Array<String>
-	{
-		var daList:Array<String> = PolymodAssets.getText(path).trim().split('\n');
-
-		for (i in 0...daList.length)
-		{
-			daList[i] = daList[i].trim();
-		}
-
-		return daList;
-	}
-	#end
 
 	public static function numberArray(max:Int, min = 0):Array<Int>
 	{

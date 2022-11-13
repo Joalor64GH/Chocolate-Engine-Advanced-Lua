@@ -47,10 +47,8 @@
 	<!--CUSTOM DEFINES-->
 	<define name="VIDEO_PLUGIN" if="web || windows" unless="32bits"/>
 	<define name="WEBM_EXTENSION" if="windows || mac"/>
-	<define name="MODS_ALLOWED" if="desktop" unless="mac" />
 	<define name="LUA_EXTENSION" if="desktop" />
 	<define name="CRASH_HANDLER" if="desktop release" />
-	<define name="MODCORE_ALLOWED" if="MODS_ALLOWED" />
 
 	<define name="PRELOAD_ALL" unless="web" />
 
@@ -66,10 +64,6 @@
 	<assets path="assets/songs"    library="songs"    exclude="*.ogg" if="web"/>
 	<assets path="assets/songs"    library="songs"    exclude="*.mp3" unless="web"/>
 
-	<section if="MODS_ALLOWED">
-	        <assets path='art/mod.url' rename='How to make a mod.url' if="windows"/>
-	        <assets path='example_mods' rename='mods' embed='false'/>
-	</section>
 	<assets path='art/readme.txt' rename='do NOT readme.txt' />
 	<assets path='LICENSE' rename='LICENSE.txt' />
 
@@ -92,12 +86,9 @@
 	<haxelib name="linc_luajit" if="LUA_EXTENSION"/>
 	<haxelib name="hxvm-luajit" if="LUA_EXTENSION"/>
 	<haxelib name="hxCodec" if="VIDEO_PLUGIN"/>
-	<haxelib name="polymod" if="MODS_ALLOWED"/>
 	<!--<haxelib name="firetounge" />-->
 	<haxelib name="discord_rpc" if="desktop"/>
 	<haxelib name="hxcpp-debug-server" if="desktop"/>
-
-	<haxedef name="no-deprecation-warnings" />
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
@@ -109,23 +100,6 @@
 
 	<!--Enable this for Nape release builds for a serious peformance improvement-->
 	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
-
-	<!--Enable Mods on the Engine-->
-	<haxedef name="mods"/>
-	
-	<!-- Use defines to configure the behavior of Polymod. -->
-	<haxedef name="POLYMOD_SCRIPT_EXT" value=".lua" />
-	<haxedef name="POLYMOD_SCRIPT_CLASS_EXT" value=".lua" />
-	<haxedef name="POLYMOD_SCRIPT_LIBRARY" value="scripts" />
-	<haxedef name="POLYMOD_USE_NAMESPACE" value="false" />
-	<haxedef name="POLYMOD_ROOT_PATH" value="assets/scripts/" />
-	<haxedef name="POLYMOD_MOD_PACK_FILE" value="_polymod_pack.txt" />
-	<haxedef name="POLYMOD_MOD_METADATA_FILE" value="_polymod_meta.json" />
-	<haxedef name="POLYMOD_MOD_ICON_FILE" value="_polymod_icon.png" />
-	<haxedef name="POLYMOD_MOD_SOFTWARE_LICENSE" value="LICENSE.txt" />
-	<haxedef name="POLYMOD_MOD_ASSET_LICENSE" value="ASSET_LICENSE.txt" />
-	<haxedef name="POLYMOD_MOD_CODE_LICENSE" value="CODE_LICENSE" />
-	<haxedef name="POLYMOD_DEBUG" if="debug" />
 
 	<!-- HTML5 hasn't been tested. Also I took this from MemeHoovy Engine.-->
 	<warn value="HTML5 builds haven't been tested and might not work, so beware of that." if="html5" />
@@ -139,9 +113,9 @@
 
 	<!--Place custom nodes like icons here (higher priority to override the HaxeFlixel icon)-->
 	
-	<icon path="art/icon16.png" size='16'/>
-	<icon path="art/icon32.png" size='32'/>
-	<icon path="art/icon64.png" size='64'/>
-	<icon path="art/iconOG.png" />
+	<icon path="assets/compileData/icon16.png" size='16'/>
+	<icon path="assets/compileData/icon32.png" size='32'/>
+	<icon path="assets/compileData/icon64.png" size='64'/>
+	<icon path="assets/compileData/iconOG.png" />
 	
 </project>

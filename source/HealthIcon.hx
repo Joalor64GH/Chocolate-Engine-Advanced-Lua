@@ -2,11 +2,6 @@ package;
 
 import flixel.FlxSprite;
 import openfl.utils.Assets;
-#if MODS_ALLOWED
-import polymod.backends.PolymodAssetLibrary;
-import polymod.Polymod;
-import polymod.backends.PolymodAssets;
-#end
 
 using StringTools;
 

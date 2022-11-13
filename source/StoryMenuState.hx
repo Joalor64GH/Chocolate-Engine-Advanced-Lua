@@ -16,9 +16,6 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.net.curl.CURLCode;
 import openfl.Assets;
-#if MODS_ALLOWED
-import polymod.backends.PolymodAssets;
-#end
 
 using StringTools;
 
